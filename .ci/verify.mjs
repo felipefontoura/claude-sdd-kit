@@ -122,6 +122,25 @@ if (pkg) {
 const changelog = existsSync(join(ROOT, "CHANGELOG.md")) ? read(join(ROOT, "CHANGELOG.md")) : "";
 ok(plugin && new RegExp(`^## \\[${plugin.version.replace(/\./g, "\\.")}\\] — \\d{4}-\\d{2}-\\d{2}$`, "m").test(changelog), `CHANGELOG.md: no "## [${plugin?.version}] — YYYY-MM-DD" entry for the current version`);
 
+// ---------------------------------------------------------------- icon (directory listing)
+// The directory wants a square PNG or JPEG, 512-2048 px per side, under 2 MB. SVG and WebP are refused.
+if (plugin) {
+  const iconRel = (plugin.icon ?? "./.claude-plugin/icon.png").replace(/^\.\//, "");
+  const iconPath = join(ROOT, iconRel);
+  ok(existsSync(iconPath), `plugin icon ${iconRel}: missing; the directory listing wants one`);
+  if (existsSync(iconPath)) {
+    const buf = readFileSync(iconPath);
+    const isPng = buf.length > 24 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
+    ok(isPng, `${iconRel}: must be a PNG (SVG and WebP are not accepted)`);
+    if (isPng) {
+      const w = buf.readUInt32BE(16);
+      const h = buf.readUInt32BE(20);
+      ok(w === h && w >= 512 && w <= 2048, `${iconRel}: ${w}x${h}; it must be square, 512-2048 px per side`);
+    }
+    ok(buf.length < 2 * 1024 * 1024, `${iconRel}: ${buf.length} bytes; it must stay under 2 MB`);
+  }
+}
+
 // ---------------------------------------------------------------- skills (Agent Skills spec)
 const SKILLS_DIR = join(ROOT, "skills");
 const SKILL_KEYS = new Set(["name", "description", "license", "compatibility", "metadata", "allowed-tools"]);

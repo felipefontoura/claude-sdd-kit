@@ -7,6 +7,7 @@
     "name": "Felipe Fontoura",
     "url": "https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit"
   },
+  "icon": "./.claude-plugin/icon.png",
   "homepage": "https://github.com/felipefontoura/claude-sdd-kit",
   "repository": "https://github.com/felipefontoura/claude-sdd-kit",
   "license": "MIT",
