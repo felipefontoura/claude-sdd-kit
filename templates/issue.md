@@ -3,7 +3,7 @@ status: pending
 file: path/to/file
 line: 0
 severity: critical|high|medium|low
-author: pi-sdd-kit
+author: sdd-kit
 provider_ref:
 ---
 

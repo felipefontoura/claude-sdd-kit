@@ -56,7 +56,7 @@
 
 | Feature | Task | Status | Owner/Agent | Blocker |
 |---------|------|--------|-------------|---------|
-| [Feature] | T1 | implementation:in-progress | Pi | [None] |
+| [Feature] | T1 | implementation:in-progress | [Owner/Agent] | [None] |
 
 ## Blocked / Attention Needed
 

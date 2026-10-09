@@ -1,6 +1,6 @@
-# Pi SDD Kit Templates
+# SDD Kit Templates
 
-These are user-facing templates for projects using Pi SDD Kit.
+These are user-facing templates for projects using the SDD Kit plugin for Claude Code.
 
 ## Language policy
 
@@ -18,7 +18,7 @@ The templates are written in EN-US as package source. When used by a skill, gene
     lp.md               <- templates/steering-landing-page.md
   strategy/
     handoff/
-      strategy-brief.md <- optional upstream input from pi-strategy
+      strategy-brief.md <- optional upstream input from a strategy step
   sdd/
     INDEX.md            <- templates/sdd-index.md
     WORKFLOW.md         <- templates/sdd-workflow.md
