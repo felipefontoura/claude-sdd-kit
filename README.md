@@ -187,4 +187,3 @@ The quality bar for the skills (technical rigor, explicit gates, verification di
 ## License
 
 [MIT](LICENSE) © Felipe Fontoura
-
