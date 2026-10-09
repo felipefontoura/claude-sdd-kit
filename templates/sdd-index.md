@@ -44,7 +44,7 @@
 
 | ID | Feature | Status | Requirements | Design | Tasks | Review | Next Action |
 |----|---------|--------|--------------|--------|-------|--------|-------------|
-| 001 | [Feature] | requirements:draft | yes | no | no | no | `/sdd:prd` approval |
+| 001 | [Feature] | requirements:draft | yes | no | no | no | `/sdd-kit:prd` approval |
 
 ## Handoff Output
 

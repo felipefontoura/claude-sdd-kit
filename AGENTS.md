@@ -1,13 +1,13 @@
 # AGENTS.md
 
-This repository is `claude-sdd-kit`: the Claude Code plugin (`sdd`) that ships the Spec-Driven Development skills, sub-agents and templates that accompany the book [Spec-Driven Development](https://github.com/felipefontoura/spec-driven-development-book). It is the Claude Code edition of [`pi-sdd-kit`](https://github.com/felipefontoura/pi-sdd-kit); the skill content is the same.
+This repository is `claude-sdd-kit`: the Claude Code plugin (`sdd-kit`) that ships the Spec-Driven Development skills, sub-agents and templates that accompany the book [Spec-Driven Development](https://github.com/felipefontoura/spec-driven-development-book). It is the Claude Code edition of [`pi-sdd-kit`](https://github.com/felipefontoura/pi-sdd-kit); the skill content is the same.
 
 ## Layout
 
 ```text
 .claude-plugin/
-  plugin.json          # plugin manifest (name `sdd`, version, privacy/support URLs)
-  marketplace.json     # marketplace `sdd-kit`, so the repo is installable by itself
+  plugin.json          # plugin manifest (name `sdd-kit`, version, privacy/support URLs)
+  marketplace.json     # marketplace `felipefontoura`, so the repo is installable by itself
 shared/references/     # SOURCE of the shared rules (edit here, never in the copies)
   sdd-practical.md     # shared SDD rules, gates, status values, language policy
   templates.md         # compact internal templates loaded by the skills
@@ -54,15 +54,15 @@ The skills are named for the phase they run: `prd` writes `requirements.md`, `sp
 
 ## Command naming — read before renaming anything
 
-The plugin is named `sdd`, the skills have short names (`init`, `prd`, `spec`...), and Claude Code namespaces plugin skills by plugin name, so the commands are `/sdd:init`, `/sdd:prd`, `/sdd:spec`. This was checked on Claude Code 2.1.296: the session's `slash_commands` lists exactly `sdd:init`, `sdd:prd`..., and the agents as `sdd:architect`, `sdd:implementer`, `sdd:reviewer`.
+The plugin is named `sdd-kit`, the skills have short names (`init`, `prd`, `spec`...), and Claude Code namespaces plugin skills by plugin name, so the commands are `/sdd-kit:init`, `/sdd-kit:prd`, `/sdd-kit:spec`. This was checked on Claude Code 2.1.296: the session's `slash_commands` lists exactly `sdd:init`, `sdd:prd`..., and the agents as `sdd-kit:architect`, `sdd-kit:implementer`, `sdd-kit:reviewer`.
 
 **This only works because the skills are shipped as a plugin.** The namespace is what keeps `init`, `plan`, `review` and `status` from colliding with Claude Code's own commands. Tested headless on 2.1.296: the same skills dropped loose into a project's `.claude/skills/` make `/init` and `/status` run the skill instead of the built-in. So:
 
 - Distribute through the plugin only. Do not document `npx skills add`, skills.sh or a manual copy into `.claude/skills/`; a loose install would shadow built-ins.
 - Skill directory names must equal the `name:` and must not carry an `sdd-` prefix. The namespace already says it.
-- In prose, always write the full command, `/sdd:prd`, never the bare skill name, so it reads right wherever it is copied.
+- In prose, always write the full command, `/sdd-kit:prd`, never the bare skill name, so it reads right wherever it is copied.
 
-`npm test` fails on a `/sdd-<skill>` command (the old flat form) and on any `/sdd:<x>` that is not a skill.
+`npm test` fails on a `/sdd-<skill>` command (the old flat form) and on any `/sdd-kit:<x>` that is not a skill.
 
 If a loose-install channel is ever wanted, build it as a separate artifact with an `sdd-` prefix (a generated tree), rather than reusing these names. That is a deliberate decision, not a drive-by edit.
 
@@ -143,7 +143,7 @@ Run all three after structural changes.
 claude --plugin-dir /absolute/path/to/claude-sdd-kit
 ```
 
-Then run `/sdd:status` in an empty directory: it should report a missing `.ai/` workspace and `Next feature ID: 001`.
+Then run `/sdd-kit:status` in an empty directory: it should report a missing `.ai/` workspace and `Next feature ID: 001`.
 
 ## Editing guidelines for AI agents
 

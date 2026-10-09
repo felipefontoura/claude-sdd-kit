@@ -24,14 +24,14 @@ To try your change inside Claude Code without installing anything:
 claude --plugin-dir /absolute/path/to/claude-sdd-kit
 ```
 
-Then run `/sdd:status` in an empty directory. It should report a missing `.ai/` workspace.
+Then run `/sdd-kit:status` in an empty directory. It should report a missing `.ai/` workspace.
 
 ## What `npm test` enforces
 
 - **Manifests**: `plugin.json` and `marketplace.json` parse, the plugin name is valid, and the version is the same in `plugin.json`, `marketplace.json`, `package.json` and `CHANGELOG.md`.
 - **Agent Skills spec**: every `skills/*/SKILL.md` has `name` equal to its directory, a `description` of 1 to 1024 characters, only allowed frontmatter keys, and a body under 500 lines.
 - **Agents**: each `agents/*.md` has `name`, `description` and `tools`.
-- **Cross-references**: every `/sdd:<skill>` command mentioned anywhere points at a skill that exists, and the old `/sdd-<skill>` form is rejected, no `/skill:` prefix has crept back in, and each skill is self-contained: it cites only files in its own `references/`, byte-identical to `shared/references/`.
+- **Cross-references**: every `/sdd-kit:<skill>` command mentioned anywhere points at a skill that exists, and the old `/sdd-<skill>` form is rejected, no `/skill:` prefix has crept back in, and each skill is self-contained: it cites only files in its own `references/`, byte-identical to `shared/references/`.
 - **Plugin directory limits**: no symlinks, no system files, no unexpected binaries, every text file under 256 KiB, at most 512 files.
 - **Site links**: every link to `felipefontoura.com` carries the repo's UTM suffix.
 
@@ -39,7 +39,7 @@ CI runs the same suite on Linux, macOS and Windows, plus markdownlint, `claude p
 
 ## Adding or changing a skill
 
-1. Create `skills/<name>/SKILL.md`. The command becomes `/sdd:<name>`. The `name` must equal the directory. Quote the `description` with single quotes.
+1. Create `skills/<name>/SKILL.md`. The command becomes `/sdd-kit:<name>`. The `name` must equal the directory. Quote the `description` with single quotes.
 2. Say in the description when to use the skill **and** when not to.
 3. Put deep material in `shared/references/`, cite it as `references/<file>.md`, and run `npm run sync`. Never edit `skills/*/references/` by hand: those are generated copies.
 4. Update the command list in `README.md` and `templates/README.md`.

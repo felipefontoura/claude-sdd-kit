@@ -28,36 +28,36 @@ It is the companion kit to the book [**Spec-Driven Development: The Definitive G
 **In Claude Code** (2.1.275 or later), one step:
 
 ```text
-/plugin install sdd --marketplace felipefontoura/claude-sdd-kit
+/plugin install sdd-kit --marketplace felipefontoura/claude-sdd-kit
 ```
 
 Or from your shell (2.1.292 or later):
 
 ```bash
-claude plugin install sdd --marketplace felipefontoura/claude-sdd-kit
+claude plugin install sdd-kit --marketplace felipefontoura/claude-sdd-kit
 ```
 
 Or in two steps, which works on older versions:
 
 ```text
 /plugin marketplace add felipefontoura/claude-sdd-kit
-/plugin install sdd@sdd-kit
+/plugin install sdd-kit@felipefontoura
 ```
 
-If the skills do not show up, run `/reload-plugins`. Type `/sdd:` to list them: Claude Code namespaces every plugin skill with the plugin name, so the commands are `/sdd:init`, `/sdd:prd`, `/sdd:spec`, and so on. That namespace is also why the short names never collide with Claude Code's own `/init`, `/review` or `/status`.
+If the skills do not show up, run `/reload-plugins`. Type `/sdd-kit:` to list them: Claude Code namespaces every plugin skill with the plugin name, so the commands are `/sdd-kit:init`, `/sdd-kit:prd`, `/sdd-kit:spec`, and so on. That namespace is also why the short names never collide with Claude Code's own `/init`, `/review` or `/status`.
 
 **For a whole team**, install at project scope. Commit the `.claude/settings.json` it writes, and each teammate runs the same command once:
 
 ```bash
-claude plugin install sdd@sdd-kit --scope project
+claude plugin install sdd-kit@felipefontoura --scope project
 ```
 
 **Update and remove** (shell, any directory):
 
 ```bash
-claude plugin marketplace update sdd-kit      # refresh the listing
-claude plugin update sdd@sdd-kit              # install the new version
-claude plugin uninstall sdd@sdd-kit
+claude plugin marketplace update felipefontoura      # refresh the listing
+claude plugin update sdd-kit@felipefontoura              # install the new version
+claude plugin uninstall sdd-kit@felipefontoura
 ```
 
 Third-party marketplaces do not auto-update by default; you can switch it on in `/plugin`, under **Marketplaces**.
@@ -67,34 +67,34 @@ Using the [Pi coding agent](https://www.npmjs.com/package/@earendil-works/pi-cod
 ## Quickstart
 
 ```text
-/sdd:init        # once per project: creates the .ai/ workspace
-/sdd:steering    # product, tech-stack, conventions, principles
-/sdd:prd         # requirements.md  → you approve
-/sdd:spec        # design.md        → you approve
-/sdd:tasks       # tasks.md + readiness check → you approve
-/sdd:exec        # implement one approved task, with verification
-/sdd:review      # verify against the approved artifacts
-/sdd:status      # where am I? what is the next safe step?
+/sdd-kit:init        # once per project: creates the .ai/ workspace
+/sdd-kit:steering    # product, tech-stack, conventions, principles
+/sdd-kit:prd         # requirements.md  → you approve
+/sdd-kit:spec        # design.md        → you approve
+/sdd-kit:tasks       # tasks.md + readiness check → you approve
+/sdd-kit:exec        # implement one approved task, with verification
+/sdd-kit:review      # verify against the approved artifacts
+/sdd-kit:status      # where am I? what is the next safe step?
 ```
 
-For a small, well-bounded change, the short path is `/sdd:init`, `/sdd:prd`, `/sdd:spec`, `/sdd:tasks`, `/sdd:exec`, `/sdd:review`. For a medium project with several features, add `/sdd:steering`, `/sdd:idea` and `/sdd:plan` up front.
+For a small, well-bounded change, the short path is `/sdd-kit:init`, `/sdd-kit:prd`, `/sdd-kit:spec`, `/sdd-kit:tasks`, `/sdd-kit:exec`, `/sdd-kit:review`. For a medium project with several features, add `/sdd-kit:steering`, `/sdd-kit:idea` and `/sdd-kit:plan` up front.
 
-Every command lives under the `sdd:` namespace. Approval is a human act: you edit the `.status` file, not Claude. A draft never unlocks the next gate.
+Every command lives under the `sdd-kit:` namespace. Approval is a human act: you edit the `.status` file, not Claude. A draft never unlocks the next gate.
 
 ## Skills
 
 | Command | Phase | What it does |
 |---------|-------|--------------|
-| `/sdd:init` | — | Creates or adopts the `.ai/` workspace (steering + sdd). Explicit command: it never runs unprompted. |
-| `/sdd:steering` | — | Creates and updates durable project context: product, tech-stack, conventions, principles |
-| `/sdd:idea` | IDEA | Explores a raw idea before you commit to it |
-| `/sdd:plan` | PLAN | Product plan: features, phases, dependencies, MVP boundary |
-| `/sdd:prd` | REQUIREMENTS | `requirements.md`: the WHAT and WHY, in EARS, with negative scope and guided decisions |
-| `/sdd:spec` | DESIGN | `design.md`: the HOW, with a requirements-to-design mapping table |
-| `/sdd:tasks` | TASKS | `tasks.md` plus the implementation readiness check |
-| `/sdd:exec` | IMPLEMENTATION | Implements **one** approved task, with fresh verification evidence |
-| `/sdd:review` | REVIEW | `review.md`: verification against requirements, design, tasks and code |
-| `/sdd:status` | — | Read-only dashboard: state, blockers, next safe action |
+| `/sdd-kit:init` | — | Creates or adopts the `.ai/` workspace (steering + sdd). Explicit command: it never runs unprompted. |
+| `/sdd-kit:steering` | — | Creates and updates durable project context: product, tech-stack, conventions, principles |
+| `/sdd-kit:idea` | IDEA | Explores a raw idea before you commit to it |
+| `/sdd-kit:plan` | PLAN | Product plan: features, phases, dependencies, MVP boundary |
+| `/sdd-kit:prd` | REQUIREMENTS | `requirements.md`: the WHAT and WHY, in EARS, with negative scope and guided decisions |
+| `/sdd-kit:spec` | DESIGN | `design.md`: the HOW, with a requirements-to-design mapping table |
+| `/sdd-kit:tasks` | TASKS | `tasks.md` plus the implementation readiness check |
+| `/sdd-kit:exec` | IMPLEMENTATION | Implements **one** approved task, with fresh verification evidence |
+| `/sdd-kit:review` | REVIEW | `review.md`: verification against requirements, design, tasks and code |
+| `/sdd-kit:status` | — | Read-only dashboard: state, blockers, next safe action |
 
 ## Sub-agents
 
@@ -162,7 +162,7 @@ review:done
 
 This plugin is plain Markdown. It contains no hooks, no MCP servers, no scripts, and no executables, and it makes no network requests of its own.
 
-- **What it reads and writes:** the skills read and write files under `.ai/` in your project, and `/sdd:exec` edits the source files of the task you approved. Nothing is written outside the project.
+- **What it reads and writes:** the skills read and write files under `.ai/` in your project, and `/sdd-kit:exec` edits the source files of the task you approved. Nothing is written outside the project.
 - **What it runs:** the `implementer` and `reviewer` agents have the `Bash` tool so they can run your project's own verification commands (lint, tests, build). They run only what your project defines, under Claude Code's normal permission prompts.
 - **What it sends:** nothing, beyond what Claude Code itself sends to Anthropic as part of your session.
 - **Personal data:** none collected or stored by the plugin.
@@ -187,3 +187,4 @@ The quality bar for the skills (technical rigor, explicit gates, verification di
 ## License
 
 [MIT](LICENSE) © Felipe Fontoura
+

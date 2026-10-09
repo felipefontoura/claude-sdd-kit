@@ -24,7 +24,7 @@ Execution turns approved specs into code. The agent must stay within the task sc
    - Validate `.status` against the official status values from `sdd-practical.md`.
    - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer task approval from `tasks.md` existing.
    - Block if status is not `tasks:approved` or `implementation:in-progress`, unless the user explicitly requests a spike.
-   - If blocked, report the current status and recommend `/sdd:tasks` approval as the next safe action.
+   - If blocked, report the current status and recommend `/sdd-kit:tasks` approval as the next safe action.
    - Read `requirements.md`, `design.md`, `tasks.md`, and `decisions.md` if present.
    - Identify the requested task. If no task is specified, select the first incomplete task whose dependencies are complete and confirm with the user.
 

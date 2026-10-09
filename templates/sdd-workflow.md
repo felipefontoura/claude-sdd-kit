@@ -17,7 +17,7 @@ The flow is intentionally simple. Most quality checks are built into the existin
 
 Use when the direction is still unclear.
 
-**Command:** `/sdd:idea`
+**Command:** `/sdd-kit:idea`
 
 **Use this to:**
 
@@ -32,7 +32,7 @@ Use when the direction is still unclear.
 
 Use when there are multiple features, phases, personas, or dependencies.
 
-**Command:** `/sdd:plan`
+**Command:** `/sdd-kit:plan`
 
 **Use this to:**
 
@@ -49,7 +49,7 @@ Use when there are multiple features, phases, personas, or dependencies.
 
 Use to define WHAT and WHY.
 
-**Command:** `/sdd:prd`
+**Command:** `/sdd-kit:prd`
 
 **Use this to:**
 
@@ -74,7 +74,7 @@ A question should become a decision when answered, and the affected requirements
 
 Use to define HOW.
 
-**Command:** `/sdd:spec`
+**Command:** `/sdd-kit:spec`
 
 **Use this to:**
 
@@ -91,7 +91,7 @@ Use to define HOW.
 
 Use to define implementation work and readiness.
 
-**Command:** `/sdd:tasks`
+**Command:** `/sdd-kit:tasks`
 
 **Use this to:**
 
@@ -122,7 +122,7 @@ TASKS may also include lightweight implementation slices:
 
 Use to implement approved tasks.
 
-**Command:** `/sdd:exec`
+**Command:** `/sdd-kit:exec`
 
 **Use this to:**
 
@@ -140,7 +140,7 @@ Use to implement approved tasks.
 
 Use after implementation to verify the result.
 
-**Command:** `/sdd:review`
+**Command:** `/sdd-kit:review`
 
 **Use this to:**
 
@@ -177,7 +177,7 @@ Common files:
 - `conventions.md` — code style, architecture patterns, testing, workflow;
 - `principles.md` — project principles, `MUST`/`SHOULD`/`MAY` rules, decision rules, review expectations.
 
-Use `/sdd:steering` to create or update these files.
+Use `/sdd-kit:steering` to create or update these files.
 
 ## Gates and Status
 
@@ -222,11 +222,11 @@ When creating a new feature:
 
 If unsure where to start:
 
-- unclear idea → `/sdd:idea`;
-- multiple features → `/sdd:plan`;
-- known feature → `/sdd:prd`;
-- approved requirements → `/sdd:spec`;
-- approved design → `/sdd:tasks`;
-- approved tasks → `/sdd:exec`;
-- implemented feature → `/sdd:review`;
-- unsure current state → `/sdd:status`.
+- unclear idea → `/sdd-kit:idea`;
+- multiple features → `/sdd-kit:plan`;
+- known feature → `/sdd-kit:prd`;
+- approved requirements → `/sdd-kit:spec`;
+- approved design → `/sdd-kit:tasks`;
+- approved tasks → `/sdd-kit:exec`;
+- implemented feature → `/sdd-kit:review`;
+- unsure current state → `/sdd-kit:status`.

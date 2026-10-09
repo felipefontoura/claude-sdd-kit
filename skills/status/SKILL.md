@@ -43,7 +43,7 @@ STATUS gives operational visibility across `.ai/sdd/` without changing artifacts
    - Group by Upstream Handoffs, Plan, Ideas, Specs, Handoff Output, In Progress, Review Ready, and Blocked.
    - Include exact paths for important artifacts.
    - Include the current `.status` value for each spec.
-   - Recommend one or more next commands such as `/sdd:prd`, `/sdd:spec`, `/sdd:tasks`, `/sdd:exec`, or `/sdd:review`.
+   - Recommend one or more next commands such as `/sdd-kit:prd`, `/sdd-kit:spec`, `/sdd-kit:tasks`, `/sdd-kit:exec`, or `/sdd-kit:review`.
 
 5. Do not modify files.
    - STATUS is read-only.
@@ -69,7 +69,7 @@ Ideas:
 Specs:
 - 001-feature — requirements:approved
   Artifacts: requirements.md yes, design.md no, tasks.md no, review.md no
-  Next: /sdd:spec
+  Next: /sdd-kit:spec
 
 Feature Workspace:
 - Next feature ID: 002
@@ -93,7 +93,7 @@ Recommended next action:
 - Do not infer approvals from file existence; use `.status` and artifact headers when available.
 - Flag missing or inconsistent status instead of silently normalizing it.
 - Compute numbering from actual directories, never from memory or `INDEX.md`.
-- When a strategy handoff exists but no SDD artifacts exist, recommend `/sdd:plan` or `/sdd:prd` depending on scope.
+- When a strategy handoff exists but no SDD artifacts exist, recommend `/sdd-kit:plan` or `/sdd-kit:prd` depending on scope.
 - When tasks are approved but `sdd-brief.md` is missing or stale, recommend refreshing the SDD handoff.
 
 ## Critical Rules

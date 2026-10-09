@@ -22,7 +22,7 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
 2. Inspect the project.
    - Check whether `.ai/`, `.ai/steering/`, `.ai/sdd/`, and `.ai/sdd/handoff/` already exist.
    - Read existing `.ai/steering/*.md`, `.ai/sdd/INDEX.md`, and `.ai/sdd/PLAN.md` if present.
-   - If `.ai/strategy/handoff/strategy-brief.md` exists, note it as optional upstream context for future `/sdd:idea`, `/sdd:plan`, or `/sdd:prd` work.
+   - If `.ai/strategy/handoff/strategy-brief.md` exists, note it as optional upstream context for future `/sdd-kit:idea`, `/sdd-kit:plan`, or `/sdd-kit:prd` work.
    - Briefly inspect README, package files, docs, source tree, and verification scripts when available.
    - Do not overwrite existing AI artifacts without explicit approval.
 
@@ -58,10 +58,10 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
    - Create directories and files only after approval.
    - Never mark PLAN or feature artifacts approved during init.
    - Recommend next command:
-     - `/sdd:idea` for exploration
-     - `/sdd:plan` for roadmap planning
-     - `/sdd:prd` for a known small feature
-     - `/sdd:steering` for more reusable context
+     - `/sdd-kit:idea` for exploration
+     - `/sdd-kit:plan` for roadmap planning
+     - `/sdd-kit:prd` for a known small feature
+     - `/sdd-kit:steering` for more reusable context
 
 ## Suggested Initial Structure
 
@@ -116,9 +116,9 @@ INIT prepares the project for consistent AI work. It creates the shared `.ai/` s
 
 ## Next Actions
 
-- [ ] Capture first idea with `/sdd:idea`
-- [ ] Or create a plan with `/sdd:plan`
-- [ ] Or create requirements for a known feature with `/sdd:prd`
+- [ ] Capture first idea with `/sdd-kit:idea`
+- [ ] Or create a plan with `/sdd-kit:plan`
+- [ ] Or create requirements for a known feature with `/sdd-kit:prd`
 ```
 
 ## Output

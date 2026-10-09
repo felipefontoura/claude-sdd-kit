@@ -17,8 +17,8 @@ Security fixes target the latest released version. Earlier versions are not main
 SDD Kit is a set of Markdown skills, sub-agent definitions and templates. A few properties matter for a security review:
 
 - **No code ships in the plugin.** There are no hooks, MCP servers, scripts, executables or package launchers, and the plugin makes no network requests of its own.
-- **The skills write files.** They create and edit files under `.ai/` in the user's project, and `/sdd:exec` edits the source files of the task the user approved.
+- **The skills write files.** They create and edit files under `.ai/` in the user's project, and `/sdd-kit:exec` edits the source files of the task the user approved.
 - **Two sub-agents can run shell commands.** `implementer` and `reviewer` have the `Bash` tool so they can run the project's own verification commands. They run under Claude Code's normal permission prompts.
 - **No secrets are read or stored** by the kit, and none must be committed to this repository.
 
-The highest-severity classes are anything that could make a skill or agent **write outside the project**, **run a command the user did not approve**, **exfiltrate project content**, or **bypass an approval gate** (for example, a prompt-injection path that makes `/sdd:exec` start before `tasks:approved`). Reports in those classes get priority.
+The highest-severity classes are anything that could make a skill or agent **write outside the project**, **run a command the user did not approve**, **exfiltrate project content**, or **bypass an approval gate** (for example, a prompt-injection path that makes `/sdd-kit:exec` start before `tasks:approved`). Reports in those classes get priority.

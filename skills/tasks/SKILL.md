@@ -27,7 +27,7 @@ Tasks define how much work exists and in what order it should be done. They must
    - Validate `.status` against the official status values from `sdd-practical.md`.
    - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer design approval from `design.md` existing.
    - Block if status is not `design:approved`, unless the user explicitly asks for draft planning.
-   - If blocked, report the current status and recommend `/sdd:spec` approval as the next safe action.
+   - If blocked, report the current status and recommend `/sdd-kit:spec` approval as the next safe action.
    - Read `requirements.md` and `design.md` completely.
    - Read `decisions.md` if it exists.
 
@@ -47,7 +47,7 @@ Tasks define how much work exists and in what order it should be done. They must
    - For small projects, keep slices lightweight and optional; do not add ceremony when a flat task list is clearer.
 
 5. Run the implementation readiness check.
-   - Keep this as part of `/sdd:tasks`; do not introduce a separate public analysis step.
+   - Keep this as part of `/sdd-kit:tasks`; do not introduce a separate public analysis step.
    - Verify requirements are covered by design decisions or design sections.
    - Verify every Must Have requirement is covered by at least one task.
    - Verify every task maps to at least one requirement, NFR, design decision, or explicit enabling need.

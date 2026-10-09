@@ -26,7 +26,7 @@ Design defines how the approved requirements will be implemented. It should be d
    - Validate `.status` against the official status values from `sdd-practical.md`.
    - If `.status` is missing or invalid, stop and ask the user to repair it; do not infer approval from `requirements.md` existing.
    - Block if status is not `requirements:approved`, unless the user explicitly asks for a non-binding draft spike.
-   - If blocked, report the current status and recommend `/sdd:prd` approval as the next safe action.
+   - If blocked, report the current status and recommend `/sdd-kit:prd` approval as the next safe action.
    - Read `requirements.md` completely.
 
 3. Explore project context.

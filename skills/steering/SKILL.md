@@ -53,7 +53,7 @@ Steering documents capture stable project guidance that many skills can reuse. T
 
 7. Save.
    - Save approved docs under `.ai/steering/`.
-   - Recommend next SDD action if relevant, such as `/sdd:idea`, `/sdd:plan`, or `/sdd:prd`.
+   - Recommend next SDD action if relevant, such as `/sdd-kit:idea`, `/sdd-kit:plan`, or `/sdd-kit:prd`.
 
 ## Output
 

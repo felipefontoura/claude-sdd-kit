@@ -221,29 +221,29 @@ for (const f of shared) {
 
 // ---------------------------------------------------------------- cross-references
 const mdFiles = files.filter((f) => f.path.endsWith(".md") && !rel(f.path).startsWith(".github/") && basename(f.path) !== "CHANGELOG.md");
-const CMD = /(?<=^|[\s`(\["'“])\/sdd:([a-z]+)\b/gm;
-const STALE_CMD = /(?<=^|[\s`(\["'“])\/sdd-(init|steering|idea|plan|prd|spec|tasks|exec|review|status)\b/m;
+const CMD = /(?<=^|[\s`(\["'“])\/sdd-kit:([a-z]+)\b/gm;
+const STALE_CMD = /(?<=^|[\s`(\["'“])\/sdd[-:](init|steering|idea|plan|prd|spec|tasks|exec|review|status)\b/m;
 const skillSet = new Set(skillDirs);
 for (const { path } of mdFiles) {
   const text = read(path);
   const r = rel(path);
   for (const m of text.matchAll(CMD)) {
-    ok(skillSet.has(m[1]), `${r}: "/sdd:${m[1]}" does not match any skill`);
+    ok(skillSet.has(m[1]), `${r}: "/sdd-kit:${m[1]}" does not match any skill`);
   }
-  ok(!/\/skill:sdd-/.test(text), `${r}: found Pi's "/skill:sdd-" prefix; this plugin uses "/sdd:<skill>"`);
-  ok(!STALE_CMD.test(text), `${r}: found a "/sdd-<skill>" command; the plugin commands are "/sdd:<skill>"`);
+  ok(!/\/skill:sdd-/.test(text), `${r}: found Pi's "/skill:sdd-" prefix; this plugin uses "/sdd-kit:<skill>"`);
+  ok(!STALE_CMD.test(text), `${r}: found a "/sdd-<skill>" command; the plugin commands are "/sdd-kit:<skill>"`);
 }
 
 // every skill is documented in the README table and the templates README
 const readme = read(join(ROOT, "README.md"));
 const tplReadme = read(join(ROOT, "templates", "README.md"));
 for (const s of skillDirs) {
-  ok(readme.includes(`\`/sdd:${s}\``), `README.md: skill /sdd:${s} is not in the skills table`);
+  ok(readme.includes(`\`/sdd-kit:${s}\``), `README.md: skill /sdd-kit:${s} is not in the skills table`);
 }
 ok(/plugin\.json/.test(read(join(ROOT, "AGENTS.md"))), "AGENTS.md: must describe the plugin manifest");
 ok(readme.split(/\s+/).length >= 40, "README.md: at least 40 words are required by the plugin directory");
 ok(tplReadme.length > 0, "templates/README.md: missing");
-ok(/\/plugin install sdd/.test(readme), "README.md: must contain the marketplace install line");
+ok(/\/plugin install sdd-kit/.test(readme), "README.md: must contain the marketplace install line");
 
 // ---------------------------------------------------------------- site links carry the UTM suffix
 for (const { path } of files) {
