@@ -125,10 +125,11 @@ ok(plugin && new RegExp(`^## \\[${plugin.version.replace(/\./g, "\\.")}\\] — \
 // ---------------------------------------------------------------- icon (directory listing)
 // The directory wants a square PNG or JPEG, 512-2048 px per side, under 2 MB. SVG and WebP are refused.
 if (plugin) {
-  const iconRel = (plugin.icon ?? "./.claude-plugin/icon.png").replace(/^\.\//, "");
+  ok(typeof plugin.icon === "string" && plugin.icon.length > 0, 'plugin.json: set "icon" (the directory listing wants one)');
+  const iconRel = (plugin.icon ?? "").replace(/^\.\//, "");
   const iconPath = join(ROOT, iconRel);
-  ok(existsSync(iconPath), `plugin icon ${iconRel}: missing; the directory listing wants one`);
-  if (existsSync(iconPath)) {
+  ok(iconRel !== "" && existsSync(iconPath), `plugin icon ${iconRel}: missing`);
+  if (iconRel !== "" && existsSync(iconPath)) {
     const buf = readFileSync(iconPath);
     const isPng = buf.length > 24 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
     ok(isPng, `${iconRel}: must be a PNG (SVG and WebP are not accepted)`);
