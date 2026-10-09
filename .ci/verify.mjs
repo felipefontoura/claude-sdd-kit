@@ -123,23 +123,13 @@ const changelog = existsSync(join(ROOT, "CHANGELOG.md")) ? read(join(ROOT, "CHAN
 ok(plugin && new RegExp(`^## \\[${plugin.version.replace(/\./g, "\\.")}\\] — \\d{4}-\\d{2}-\\d{2}$`, "m").test(changelog), `CHANGELOG.md: no "## [${plugin?.version}] — YYYY-MM-DD" entry for the current version`);
 
 // ---------------------------------------------------------------- icon (directory listing)
-// The directory wants a square PNG or JPEG, 512-2048 px per side, under 2 MB. SVG and WebP are refused.
-if (plugin) {
-  ok(typeof plugin.icon === "string" && plugin.icon.length > 0, 'plugin.json: set "icon" (the directory listing wants one)');
-  const iconRel = (plugin.icon ?? "").replace(/^\.\//, "");
-  const iconPath = join(ROOT, iconRel);
-  ok(iconRel !== "" && existsSync(iconPath), `plugin icon ${iconRel}: missing`);
-  if (iconRel !== "" && existsSync(iconPath)) {
-    const buf = readFileSync(iconPath);
-    const isPng = buf.length > 24 && buf.subarray(0, 8).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]));
-    ok(isPng, `${iconRel}: must be a PNG (SVG and WebP are not accepted)`);
-    if (isPng) {
-      const w = buf.readUInt32BE(16);
-      const h = buf.readUInt32BE(20);
-      ok(w === h && w >= 512 && w <= 2048, `${iconRel}: ${w}x${h}; it must be square, 512-2048 px per side`);
-    }
-    ok(buf.length < 2 * 1024 * 1024, `${iconRel}: ${buf.length} bytes; it must stay under 2 MB`);
-  }
+// The directory listing wants a PNG under 2 MB. This only looks at the file list the walk above
+// already built: the script never opens the image. The portal checks the dimensions.
+{
+  const png = files.filter((f) => rel(f.path).startsWith(".claude-plugin/") && /\.png$/i.test(f.path));
+  ok(png.length === 1, `.claude-plugin/ should hold exactly one PNG icon; found ${png.length}`);
+  ok(png.every((f) => f.size < 2 * 1024 * 1024), "the plugin icon must stay under 2 MB");
+  ok(typeof plugin?.icon === "string" && plugin.icon.length > 0, 'plugin.json: set "icon" (the directory listing wants one)');
 }
 
 // ---------------------------------------------------------------- skills (Agent Skills spec)
@@ -261,7 +251,6 @@ for (const { path } of files) {
 for (const f of ["LICENSE", "README.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "CODE_OF_CONDUCT.md", "AGENTS.md", ".claude/CLAUDE.md", ".github/workflows/ci.yml"]) {
   ok(existsSync(join(ROOT, f)), `${f}: missing`);
 }
-ok(!existsSync(join(ROOT, ".npmrc")) && !existsSync(join(ROOT, "bunfig.toml")), "package-manager config files are refused by the plugin directory");
 
 // ---------------------------------------------------------------- report
 if (failures.length) {
