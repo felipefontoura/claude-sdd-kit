@@ -123,13 +123,12 @@ const changelog = existsSync(join(ROOT, "CHANGELOG.md")) ? read(join(ROOT, "CHAN
 ok(plugin && new RegExp(`^## \\[${plugin.version.replace(/\./g, "\\.")}\\] — \\d{4}-\\d{2}-\\d{2}$`, "m").test(changelog), `CHANGELOG.md: no "## [${plugin?.version}] — YYYY-MM-DD" entry for the current version`);
 
 // ---------------------------------------------------------------- icon (directory listing)
-// The directory listing wants a PNG under 2 MB. This only looks at the file list the walk above
+// The directory listing wants a PNG under 2 MB, found by its default location (no "icon" field in the manifest). This only looks at the file list the walk above
 // already built: the script never opens the image. The portal checks the dimensions.
 {
   const png = files.filter((f) => rel(f.path).startsWith(".claude-plugin/") && /\.png$/i.test(f.path));
   ok(png.length === 1, `.claude-plugin/ should hold exactly one PNG icon; found ${png.length}`);
   ok(png.every((f) => f.size < 2 * 1024 * 1024), "the plugin icon must stay under 2 MB");
-  ok(typeof plugin?.icon === "string" && plugin.icon.length > 0, 'plugin.json: set "icon" (the directory listing wants one)');
 }
 
 // ---------------------------------------------------------------- skills (Agent Skills spec)
