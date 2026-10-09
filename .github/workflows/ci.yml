@@ -1,0 +1,59 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Test (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v5 # respects .gitattributes → LF on checkout
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: node --check .ci/verify.mjs
+      - run: npm test
+
+  lint:
+    name: Lint (markdown)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      - run: npx --yes markdownlint-cli2 "**/*.md"
+
+  validate:
+    name: Validate (claude plugin validate)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      # Claude Code's own manifest check. Pin the version so CI does not drift.
+      - run: npx --yes @anthropic-ai/claude-code@2.1.296 plugin validate .
+
+  skills-ref:
+    name: Validate (Agent Skills spec)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+      # The reference validator from agentskills.io, applied to every skill.
+      - run: npm run validate:skills

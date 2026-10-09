@@ -1,0 +1,18 @@
+{
+  "gitignore": true,
+  "config": {
+    "default": true,
+    "MD013": false,
+    "MD024": false,
+    "MD025": false,
+    "MD033": false,
+    "MD036": false,
+    "MD041": false,
+    "MD060": false,
+    "MD012": { "maximum": 1 },
+    "MD004": { "style": "dash" },
+    "MD049": { "style": "asterisk" },
+    "MD050": { "style": "asterisk" },
+    "MD009": { "br_spaces": 2, "list_item_empty_lines": false, "strict": false }
+  }
+}

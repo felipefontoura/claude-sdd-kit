@@ -1,0 +1,20 @@
+{
+  "name": "sdd-kit",
+  "owner": {
+    "name": "Felipe Fontoura",
+    "url": "https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit"
+  },
+  "metadata": {
+    "description": "Spec-Driven Development for Claude Code: the companion kit to the free book of the same name."
+  },
+  "plugins": [
+    {
+      "name": "sdd",
+      "source": "./",
+      "description": "Ten skills and three sub-agents for Spec-Driven Development: explicit artifacts, human approval gates, and a .status file as the single source of truth.",
+      "version": "0.1.0",
+      "category": "workflow",
+      "tags": ["spec-driven-development", "sdd", "ears", "requirements"]
+    }
+  ]
+}

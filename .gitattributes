@@ -1,0 +1,9 @@
+# Keep committed files LF on every platform, so CI is byte-identical on Linux, macOS and Windows.
+# Do not add export-ignore, export-subst or filter attributes: the plugin directory refuses them.
+*.md    text eol=lf
+*.mjs   text eol=lf
+*.json  text eol=lf
+*.jsonc text eol=lf
+*.yml   text eol=lf
+*.png   binary
+*.jpg   binary

@@ -1,0 +1,25 @@
+{
+  "name": "sdd",
+  "displayName": "SDD Kit",
+  "version": "0.1.0",
+  "description": "Spec-Driven Development for Claude Code: ten skills and three sub-agents that run IDEA → PLAN → REQUIREMENTS → DESIGN → TASKS → EXEC → REVIEW with human approval gates and a .status file as the single source of truth.",
+  "author": {
+    "name": "Felipe Fontoura",
+    "url": "https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit"
+  },
+  "homepage": "https://github.com/felipefontoura/claude-sdd-kit",
+  "repository": "https://github.com/felipefontoura/claude-sdd-kit",
+  "license": "MIT",
+  "keywords": [
+    "spec-driven-development",
+    "sdd",
+    "specs",
+    "ears",
+    "requirements",
+    "agent-skills",
+    "workflow"
+  ],
+  "documentationUrl": "https://github.com/felipefontoura/claude-sdd-kit#readme",
+  "supportUrl": "https://github.com/felipefontoura/claude-sdd-kit/issues",
+  "privacyPolicyUrl": "https://github.com/felipefontoura/claude-sdd-kit#data-handling-and-privacy"
+}

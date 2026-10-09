@@ -1,0 +1,27 @@
+{
+  "name": "claude-sdd-kit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Spec-Driven Development for Claude Code: ten skills and three sub-agents with human approval gates. Repo tooling only; the product is the plugin in .claude-plugin/.",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "sync": "node .ci/sync-references.mjs",
+    "test": "node .ci/verify.mjs",
+    "lint": "markdownlint-cli2 \"**/*.md\"",
+    "validate": "claude plugin validate .",
+    "validate:skills": "for d in skills/*; do npx --yes skills-ref@0.1.5 validate \"$d\" || exit 1; done"
+  },
+  "author": "Felipe Fontoura",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/felipefontoura/claude-sdd-kit.git"
+  },
+  "homepage": "https://github.com/felipefontoura/claude-sdd-kit#readme",
+  "bugs": {
+    "url": "https://github.com/felipefontoura/claude-sdd-kit/issues"
+  }
+}
