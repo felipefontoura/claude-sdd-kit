@@ -21,7 +21,7 @@ IDEA → PLAN → REQUIREMENTS → DESIGN → TASKS → EXEC → REVIEW
 
 AI can accelerate development, but it can also accelerate ambiguity. This kit enforces a simple discipline: explore before planning, define **what and why** before **how**, break the work into verifiable tasks, implement only after you approve, and review the delivery against the approved artifacts.
 
-It is the companion kit to the book [**Spec-Driven Development: The Definitive Guide to Building Software with AI Agents**](https://github.com/felipefontoura/spec-driven-development-book), and the Claude Code edition of [`pi-sdd-kit`](https://github.com/felipefontoura/pi-sdd-kit). Built by [Felipe Fontoura](https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit), who used Spec-Driven Development to ship a [13-app crypto fintech solo in 70 days](https://felipefontoura.com/articles/spec-driven-development-case-study/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit).
+It is the companion kit to the book [**Spec-Driven Development: The Definitive Guide to Building Software with AI Agents**](https://github.com/felipefontoura/spec-driven-development-book). Built by [Felipe Fontoura](https://felipefontoura.com/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit), who used Spec-Driven Development to ship a [13-app crypto fintech solo in 70 days](https://felipefontoura.com/articles/spec-driven-development-case-study/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit).
 
 ## Install
 
@@ -61,8 +61,6 @@ claude plugin uninstall sdd-kit@felipefontoura
 ```
 
 Third-party marketplaces do not auto-update by default; you can switch it on in `/plugin`, under **Marketplaces**.
-
-Using the [Pi coding agent](https://www.npmjs.com/package/@earendil-works/pi-coding-agent)? Use [`pi-sdd-kit`](https://github.com/felipefontoura/pi-sdd-kit) instead: the same method as a Pi package.
 
 ## Quickstart
 
