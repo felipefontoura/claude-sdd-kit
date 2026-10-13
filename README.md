@@ -179,6 +179,8 @@ It is free and open source. [Download the PDF or EPUB](https://felipefontoura.co
 - [How to write a spec an AI can build from](https://felipefontoura.com/articles/how-to-write-a-spec/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): the EARS format and copy-paste templates
 - [Spec-Driven Development with Claude Code](https://felipefontoura.com/articles/spec-driven-development-with-claude-code/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): plan mode, the three-layer context and the `.status` gate this kit implements
 - [OpenSpec vs. Spec Kit vs. Superpowers](https://felipefontoura.com/articles/spec-driven-development-tools-compared/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): where a gated kit like this one sits next to the other SDD tools
+- [OpenSpec tutorial: one real change, from install to archive](https://felipefontoura.com/articles/openspec/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): OpenSpec 1.14 run end to end on a real repo
+- [BMAD Method guide: install, workflow, real run](https://felipefontoura.com/articles/bmad-method/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): BMAD 6.12 tested in Claude Code, what it cost and where it breaks
 
 ## Acknowledgements
 
