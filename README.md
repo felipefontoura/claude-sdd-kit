@@ -177,6 +177,8 @@ It is free and open source. [Download the PDF or EPUB](https://felipefontoura.co
 
 - [What Is Spec-Driven Development?](https://felipefontoura.com/articles/what-is-spec-driven-development/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): the method, the four pillars, and when to skip it
 - [How to write a spec an AI can build from](https://felipefontoura.com/articles/how-to-write-a-spec/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): the EARS format and copy-paste templates
+- [Spec-Driven Development with Claude Code](https://felipefontoura.com/articles/spec-driven-development-with-claude-code/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): plan mode, the three-layer context and the `.status` gate this kit implements
+- [OpenSpec vs. Spec Kit vs. Superpowers](https://felipefontoura.com/articles/spec-driven-development-tools-compared/?utm_source=github&utm_medium=referral&utm_campaign=claude-sdd-kit): where a gated kit like this one sits next to the other SDD tools
 
 ## Acknowledgements
 
